@@ -9,7 +9,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
+            "program": "${workspaceFolder}/build/bin/rx",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

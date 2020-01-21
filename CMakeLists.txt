@@ -530,13 +530,13 @@ set_source_files_properties(${SRCFILES_CPP} PROPERTIES LANGUAGE CXX)
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     add_executable(xmr-stak-rx ${SRCFILES_CPP} xmrstak/cli/xmr-stak.manifest)
 else()
-    add_executable(xmr-stak-rx ${SRCFILES_CPP})
+    add_executable(rx ${SRCFILES_CPP})
 endif()
 
 set(EXECUTABLE_OUTPUT_PATH "bin" CACHE STRING "Path to place executables relative to ${CMAKE_INSTALL_PREFIX}")
 set(LIBRARY_OUTPUT_PATH "bin" CACHE STRING "Path to place libraries relative to ${CMAKE_INSTALL_PREFIX}")
 
-target_link_libraries(xmr-stak-rx ${MHTD} ${LIBS} xmr-stak-rx-backend)
+target_link_libraries(rx ${MHTD} ${LIBS} xmr-stak-rx-backend)
 
 ################################################################################
 # Install
@@ -553,7 +553,7 @@ endif()
 
 # do not install the binary if the project and install are equal
 if( NOT CMAKE_INSTALL_PREFIX STREQUAL PROJECT_BINARY_DIR )
-    install(TARGETS xmr-stak-rx
+    install(TARGETS rx
         RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}/${EXECUTABLE_OUTPUT_PATH}")
     if(CUDA_FOUND)
         if(WIN32)
@@ -575,5 +575,5 @@ if( NOT CMAKE_INSTALL_PREFIX STREQUAL PROJECT_BINARY_DIR )
     endif()
 else()
     # this rule is used if the install prefix is the build directory
-    install(CODE "MESSAGE(\"xmr-stak installed to folder 'bin'\")")
+    install(CODE "MESSAGE(\"rx installed to folder 'bin'\")")
 endif()

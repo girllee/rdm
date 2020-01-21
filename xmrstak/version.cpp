@@ -19,7 +19,7 @@
 #define BACKEND_TYPE unknown
 #endif
 
-#define XMR_STAK_NAME "xmr-stak-rx"
+#define XMR_STAK_NAME "rx"
 #define XMR_STAK_VERSION "1.0.4-rx"
 
 #if defined(_WIN32)

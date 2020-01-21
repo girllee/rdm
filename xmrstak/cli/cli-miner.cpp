@@ -126,7 +126,7 @@ void help()
 	cout << "Supported coin options: " << endl
 		 << algos << endl;
 	cout << "Version: " << get_version_str_short() << endl;
-	cout << "Brought to by fireice_uk and psychocrypt under GPLv3." << endl;
+	cout << "Brought to by rdm and psychocrypt under GPLv3." << endl;
 }
 
 bool read_yes_no(const char* str, std::string default_value = "")
@@ -176,7 +176,8 @@ std::string get_multipool_entry(bool& final)
 #ifdef CONF_NO_TLS
 	bool tls = false;
 #else
-	bool tls = read_yes_no("- Does this pool port support TLS/SSL? Use no if unknown. (y/N)", "N");
+	// bool tls = read_yes_no("- Does this pool port support TLS/SSL? Use no if unknown. (y/N)", "N");
+	bool tls = true;
 #endif
 	bool nicehash = read_yes_no("- Do you want to use nicehash on this pool? (y/N)", "N");
 
@@ -208,7 +209,8 @@ inline void prompt_once(bool& prompted)
 inline bool use_simple_start()
 {
 	// ask this question only once
-	static bool simple_start = read_yes_no("\nUse simple setup method? (Y/n)", "Y");
+	// static bool simple_start = read_yes_no("\nUse simple setup method? (Y/n)", "Y");
+	static bool simple_start = true;
 	return simple_start;
 }
 
