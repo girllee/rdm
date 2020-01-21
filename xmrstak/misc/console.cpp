@@ -156,7 +156,8 @@ inline void comp_localtime(const time_t* ctime, tm* stime)
 
 printer::printer()
 {
-	verbose_level = LINF;
+	//verbose_level = LINF;
+	verbose_level = L0;
 	logfile = nullptr;
 	// Windows doesn't do line buffering, so it needs to enable full buffering and manually flush the buffer
 	setvbuf(stdout, NULL, _IOFBF, BUFSIZ);
@@ -170,7 +171,7 @@ bool printer::open_logfile(const char* file)
 
 void printer::print_msg(verbosity verbose, const char* fmt, ...)
 {
-	if(verbose > verbose_level)
+	if(verbose >= verbose_level)
 		return;
 
 	char buf[1024];
